@@ -36,11 +36,6 @@ login_header = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'
 }
 
-payload_ = {
-    "email": "prajapatijayjayjay22999@gmail.com",
-    "password": "9909125883J@y"
-}
-
 
 class Gaana:
     def __init__(self):
