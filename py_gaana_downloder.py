@@ -10,6 +10,7 @@ from os.path import join
 import subprocess
 import shutil
 from mutagen.mp4 import MP4, MP4Cover
+import ffmpeg
 
 # Firstinput
 song = input('Enter Song / Artist Name : ')
@@ -40,7 +41,7 @@ login_header = {
 class Gaana:
     def __init__(self):
         self.data = {
-            "ps": "Acebf38db-5f2e-4729-bfec-65ea862add60",
+            "ps": "Acebf39db-5f2e-4729-bfec-65ea862add60",
             "track_id": '',
             "request_type": "web",
             "quality": "high",
@@ -202,11 +203,10 @@ class Gaana:
 
             self.thumbnil = requests.get(self.download_track[3])
 
-            subprocess.run(
-                f'''ffmpeg -y  -i "{file_name}" -c copy "{self.output}"''', capture_output=False)
+            ffmpeg.input(file_name).output(self.output).run()
+
             # subprocess.run(
-            #     f'''ffmpeg -y -loop 1 -i "{jpg}" -i "{file_name}" -shortest -map 0:0 -map 1:0 -metadata title="{self.download_track[1]}" -metadata album_artist="{self.download_track[5]}" -metadata album="Album Title" "{output}"''', capture_output=True)
-            # print(os.path.join(self.temp_path, download_track[0]))
+            #     f'''ffmpeg -y  -i "{file_name}" -c copy "{self.output}"''', capture_output=False)
 
             self.mutagen()
 

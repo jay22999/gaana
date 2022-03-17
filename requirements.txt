@@ -1,2 +1,4 @@
+ffmpeg==1.4
+ffmpeg_python==0.2.0
 mutagen==1.45.1
 requests==2.27.1
