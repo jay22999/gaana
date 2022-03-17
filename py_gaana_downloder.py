@@ -61,9 +61,6 @@ class Gaana:
         album_track_list = s.post(url=auto_suggest_2)
         album_track_list = (album_track_list.json())
 
-        # with open('gaana.json', 'w')as f:
-        #     json.dump(album_track_list, f, indent=2)
-
         # for album
         if album_track_list.get("album"):
             self.title_of_playlist = album_track_list.get("album")["title"]
@@ -74,9 +71,6 @@ class Gaana:
                 "meta_h1_tag"]
 
         new_album_track_list = []
-
-        with open("gaana.json", "w") as f:
-            json.dump(album_track_list, f, indent=2)
 
         for i in album_track_list.get("tracks"):
             new_album_track_list.append((i.get("track_id"), i.get("track_title"), i.get(
@@ -236,8 +230,6 @@ else:
     auto_suggest = f"https://gaana.com/apiv2?country=IN&keyword={song}&type=search"
     suggetion = s.post(url=auto_suggest)
     suggetion = suggetion.json()
-    with open("gaana.json", "w")as f:
-        json.dump(suggetion, f, indent=2)
     f = True
 
 
